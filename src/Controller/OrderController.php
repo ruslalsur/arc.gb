@@ -46,8 +46,7 @@ class OrderController extends BaseController
      * Оформление заказа
      * @param Request $request
      * @return Response
-     * @throws BillingException
-     * @throws CommunicationException
+     * @throws Exception
      */
     public function checkoutAction(Request $request): Response
     {
