@@ -42,6 +42,10 @@ class CheckoutProcess
         }
 
         $totalPrice = $totalPrice - $totalPrice / 100 * $this->discount->getDiscount();
+
+        //Примеры использования фабричного метода.
+        //паттерн был применен, чтобы реализация способа оплаты зависила исключительно от контекста того экземпляра класса в котором
+        //он вызывается, для достижения принципа слабой связанности объектов
         $this->billing->pay($totalPrice);
         $user = $this->security->getUser();
         $this->communication->process($user, 'checkout_template');
