@@ -28,7 +28,7 @@ class ProductRepository
             );
         }
 
-        return $productList;
+        return array_merge($productList, $this->doubleSet($productList));
     }
 
     /**
@@ -38,6 +38,7 @@ class ProductRepository
     public function fetchAll(): array
     {
         $productList = [];
+
         foreach ($this->getDataFromSource() as $item) {
             $productList[] = new Product(
                 $item['id'],
@@ -46,7 +47,17 @@ class ProductRepository
             );
         }
 
-        return $productList;
+        return array_merge($productList, $this->doubleSet($productList));
+    }
+
+    private function doubleSet(array $productList1): array
+    {
+        $productList2 = [];
+        foreach ($productList1 as $item) {
+            $productList2[] = clone $item;
+        }
+
+        return $productList2;
     }
 
     /**

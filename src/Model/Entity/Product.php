@@ -33,6 +33,13 @@ class Product
         $this->price = $price;
     }
 
+    public function __clone()
+    {
+        $this->id = 1000 + $this->id;
+        $this->name = $this->name . ' для профессионалов';
+        $this->price = $this->price * 1.5;
+    }
+
     /**
      * @return int
      */
