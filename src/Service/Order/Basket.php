@@ -88,17 +88,21 @@ class Basket
     /**
      * Оформление заказа
      * @return void
+     * @throws BillingException
+     * @throws CommunicationException
      */
     public function checkout(): void
     {
         $builder = new BasketBuilder();
-        $builder->setProductsInfo($this->getProductsInfo())
+        $checkout1 = $builder->setProductsInfo($this->getProductsInfo())
             ->setBilling(new Card())
             ->setCommunication(new Email())
             ->setDiscount(new NullObject())
             ->setSecurity(new Security($this->session))
-            ->build()
-            ->checkoutProcess();
+            ->build();
+
+        $checkoutProgress = new CheckoutProcess($checkout1);
+        $checkoutProgress->checkoutProcess();
     }
 
     /**

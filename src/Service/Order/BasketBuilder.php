@@ -11,7 +11,7 @@ use Service\User\SecurityInterface;
 
 class BasketBuilder
 {
-    public CheckoutProcess $checkoutProgress;
+    public Checkout $checkout;
 
     /**
      * BasketBuilder constructor.
@@ -22,11 +22,11 @@ class BasketBuilder
     }
 
     /**
-     * @return CheckoutProcess
+     * @return void
      */
     public function reset(): void
     {
-        $this->checkoutProgress = new CheckoutProcess();
+        $this->checkout = new Checkout;
     }
 
     /**
@@ -34,7 +34,7 @@ class BasketBuilder
      */
     public function getProductsInfo(): array
     {
-        return $this->checkoutProgress->productsInfo;
+        return $this->checkout->productsInfo;
     }
 
     /**
@@ -43,7 +43,7 @@ class BasketBuilder
      */
     public function setProductsInfo(array $productsInfo): self
     {
-        $this->checkoutProgress->productsInfo = $productsInfo;
+        $this->checkout->productsInfo = $productsInfo;
         return $this;
     }
 
@@ -52,7 +52,7 @@ class BasketBuilder
      */
     public function getDiscount()
     {
-        return $this->checkoutProgress->discount;
+        return $this->checkout->discount;
     }
 
     /**
@@ -61,7 +61,7 @@ class BasketBuilder
      */
     public function setDiscount(DiscountInterface $discount): self
     {
-        $this->checkoutProgress->discount = $discount;
+        $this->checkout->discount = $discount;
         return $this;
     }
 
@@ -70,7 +70,7 @@ class BasketBuilder
      */
     public function getBilling()
     {
-        return $this->checkoutProgress->billing;
+        return $this->checkout->billing;
     }
 
     /**
@@ -79,7 +79,7 @@ class BasketBuilder
      */
     public function setBilling(BillingInterface $billing): self
     {
-        $this->checkoutProgress->billing = $billing;
+        $this->checkout->billing = $billing;
         return $this;
     }
 
@@ -88,7 +88,7 @@ class BasketBuilder
      */
     public function getSecurity()
     {
-        return $this->checkoutProgress->security;
+        return $this->checkout->security;
     }
 
     /**
@@ -97,7 +97,7 @@ class BasketBuilder
      */
     public function setSecurity(SecurityInterface $security): self
     {
-        $this->checkoutProgress->security = $security;
+        $this->checkout->security = $security;
         return $this;
     }
 
@@ -106,7 +106,7 @@ class BasketBuilder
      */
     public function getCommunication()
     {
-        return $this->checkoutProgress->communication;
+        return $this->checkout->communication;
     }
 
     /**
@@ -115,16 +115,16 @@ class BasketBuilder
      */
     public function setCommunication(CommunicationInterface $communication): self
     {
-        $this->checkoutProgress->communication = $communication;
+        $this->checkout->communication = $communication;
         return $this;
     }
 
     /**
      * @return CheckoutProcess
      */
-    public function build(): CheckoutProcess
+    public function build(): Checkout
     {
-        $result = $this->checkoutProgress;
+        $result = $this->checkout;
         $this->reset();
         return $result;
     }
