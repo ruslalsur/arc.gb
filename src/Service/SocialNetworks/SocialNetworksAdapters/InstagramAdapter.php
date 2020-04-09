@@ -25,7 +25,6 @@ class InstagramAdapter implements SocialNetworkInterface
      */
     public function send(string $url, string $message): void
     {
-        $message = [];
         $message[] = [
             'link' => $url,
             'text' => $message,
