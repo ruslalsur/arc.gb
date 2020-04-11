@@ -30,12 +30,15 @@ class ProductService
     {
         $productList = $this->getProductRepository()->fetchAll();
 
-        // Применить паттерн Стратегия
-        // $sortType === 'price'; // Сортировка по цене
-        // $sortType === 'name'; // Сортировка по имени
+        //чтобы не писать ниразу условия, раз уж поклялись этого не делать
+        //будем конкатенировать название нужного класса стратегии из принятой строки
+        $strategyClass = 'Service\\Product\\Strategies\\' . ucfirst($sortType) . 'SortingStrategy';
+        $strategy = new $strategyClass();
+        $sorting = new Sorting($strategy);
 
-        return $productList;
+        return $sorting->sorting($productList);
     }
+
 
     /**
      * Фабричный метод для репозитория Product
