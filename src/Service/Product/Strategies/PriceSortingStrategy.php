@@ -4,7 +4,7 @@
 namespace Service\Product\Strategies;
 
 
-class PriceSortingStrategy extends BaseSortingStrategy
+class PriceSortingStrategy extends ContractSortingStrategy
 {
     /**
      * стратегическая сортировака по цене

@@ -4,7 +4,7 @@
 namespace Service\Product\Strategies;
 
 
-class UnsortSortingStrategy extends BaseSortingStrategy
+class UnsortSortingStrategy extends ContractSortingStrategy
 {
     /**
      * стратегическая сортировака без сортировки (надо)

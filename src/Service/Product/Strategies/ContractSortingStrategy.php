@@ -5,7 +5,7 @@ namespace Service\Product\Strategies;
 
 use Model\Entity\Product;
 
-abstract class BaseSortingStrategy
+abstract class ContractSortingStrategy
 {
     /**
      * позовите нотариуса, будем заключать контракт со всемя стратегиями сразу
@@ -17,7 +17,6 @@ abstract class BaseSortingStrategy
     /**
      * чтобы этот функционал не дублировать во всех стартегиях был использован абстрактный класс
      * вместо интерфейса, который может тока договора подписывать, да контракты заключать и всё
-     * лишнее это, но захотелось и потыкать по ссылочкам в представлении
      * @param Product $array что массив продуктов для сортировки
      * @param String $sortField имя поля в продукте по которому надо отсортировать массив с продуктами
      * @return array отсортированный массив

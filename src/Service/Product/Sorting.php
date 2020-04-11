@@ -4,26 +4,26 @@
 namespace Service\Product;
 
 
-use Service\Product\Strategies\BaseSortingStrategy;
+use Service\Product\Strategies\ContractSortingStrategy;
 
 class Sorting
 {
-    private BaseSortingStrategy $sortingStrategy;
+    private ContractSortingStrategy $sortingStrategy;
 
     /**
      * Sorting constructor.
-     * @param BaseSortingStrategy $sortTypeStrategy
+     * @param ContractSortingStrategy $sortTypeStrategy
      */
-    public function __construct(BaseSortingStrategy $sortTypeStrategy)
+    public function __construct(ContractSortingStrategy $sortTypeStrategy)
     {
         $this->sortingStrategy = $sortTypeStrategy;
     }
 
     /**
      * возможность внезапно изменить стратегию
-     * @param BaseSortingStrategy $sortTypeStrategy
+     * @param ContractSortingStrategy $sortTypeStrategy
      */
-    public function changeSortingStrategy(BaseSortingStrategy $sortTypeStrategy) {
+    public function changeSortingStrategy(ContractSortingStrategy $sortTypeStrategy) {
         $this->sortingStrategy = $sortTypeStrategy;
     }
 
