@@ -4,6 +4,7 @@
 namespace Service\Product;
 
 
+use Model\Entity\Product;
 use Service\Product\Strategies\ContractSortingStrategy;
 
 class Sorting
@@ -29,8 +30,8 @@ class Sorting
 
     /**
      * применение стратегии, до сих пор хочется, назвать метод "apply"
-     * @param $products
-     * @return array
+     * @param Product[] $products
+     * @return Product[]
      */
     public function sorting($products): array
     {

@@ -4,14 +4,16 @@
 namespace Service\Product\Strategies;
 
 
+use Model\Entity\Product;
+
 class UnsortSortingStrategy extends ContractSortingStrategy
 {
     /**
      * стратегическая сортировака без сортировки (надо)
-     * @param array $products
-     * @return array
+     * @param Product[] $products
+     * @return Product[]
      */
-    public function start(array $products): array
+    public function start($products): array
     {
         return $products;
     }
