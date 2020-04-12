@@ -111,6 +111,9 @@ class Basket
 
     /**
      * Проведение всех этапов заказа
+     *
+     * предположу что этот метод этого класса содержит шаги, которые могут быть преропределены в потомках
+     *
      * @param DiscountInterface $discount
      * @param BillingInterface $billing
      * @param SecurityInterface $security
