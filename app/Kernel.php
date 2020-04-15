@@ -16,6 +16,10 @@ use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
 
+// это класс является контроллером запросов, он взаимодействует с классом реестра Registry из этого проекта
+// в методе process есть вызов функции call_user_func_array
+// взаимодействует с классами Request, Response, UrlMatcher, ContainerBuilder, ControllerResolver, ArgumentResolver,
+// Session, RouteCollection, FileLocator, PhpFileLoader и др.
 class Kernel
 {
     /**
